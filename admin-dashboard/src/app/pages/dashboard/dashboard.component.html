@@ -1,0 +1,47 @@
+<div class="p-4">
+  <h1 class="text-2xl font-bold mb-4">Welcome to Admin Dashboard</h1>
+
+  <div class="grid grid-cols-2 gap-4 mb-6">
+    <!-- Card 1: Number of Trains Registered -->
+    <div class="p-4 bg-blue-500 text-white rounded shadow">
+      <h2 class="text-lg font-bold">Trains Registered</h2>
+      <p class="text-4xl mt-2">{{ trainCount }}</p>
+    </div>
+
+    <!-- Card 2: Number of Active Users -->
+    <div class="p-4 bg-green-500 text-white rounded shadow">
+      <h2 class="text-lg font-bold">Active Users</h2>
+      <p class="text-4xl mt-2">{{ userCount }}</p>
+    </div>
+  </div>
+
+  <!-- Table: Train Details -->
+  <div class="bg-white rounded shadow p-4">
+    <h2 class="text-lg font-bold mb-4">Details</h2>
+    <table class="w-full whitespace-nowrap">
+      <thead>
+        <tr class="w-full text-sm leading-none text-gray-100 bg-slate-800">
+          <th class="font-bold text-lg text-center border border-gray-200 px-4 py-2">Train Number</th>
+          <th class="font-bold text-lg text-center border border-gray-200 px-4 py-2">Train Name</th>
+          <th class="font-bold text-lg text-center border border-gray-200 px-4 py-2">Number of Users</th>
+        </tr>
+      </thead>
+      <tbody class="w-full shadow">
+        <tr
+          *ngFor="let train of trainDetails"
+          class="h-16 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100 cursor-pointer"
+        >
+          <td class="pl-5">
+            <p class="font-medium text-[1rem]">{{ train.trainNumber }}</p>
+          </td>
+          <td class="pl-5">
+            <p class="font-medium text-[1rem]">{{ train.trainName }}</p>
+          </td>
+          <td class="pl-5">
+            <p class="font-medium text-[1rem]">{{ train.numberOfBookedUsers }}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

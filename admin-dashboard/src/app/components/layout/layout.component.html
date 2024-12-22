@@ -1,0 +1,18 @@
+<!-- layout.component.html -->
+<div class="w-full flex h-screen">
+  <!-- Side Bar -->
+  <div class="w-[280px] flex flex-col fixed z-40">
+    <app-sidebar />
+  </div>
+  
+
+  <!-- Main Content -->
+  <div class="rightCon flex flex-col">
+    <!-- Navbar -->
+    <app-navbar />
+    <!-- Dynamic Content -->
+    <div class="p-4 bg-gray-100 w-full ml-[280px] mt-[80px]">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

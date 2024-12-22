@@ -1,0 +1,704 @@
+{
+	"info": {
+		"_postman_id": "4c77b0a1-b1cf-41b4-b41d-548059332568",
+		"name": "TrainMonk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22951178"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Search Train",
+					"item": [
+						{
+							"name": "Search Train",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/users/trains/search?originStation=Delhi&destinationStation=Mumbai&date=2024-12-25&tierClass=AC%20First%20Class&price=800",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"trains",
+										"search"
+									],
+									"query": [
+										{
+											"key": "originStation",
+											"value": "Delhi"
+										},
+										{
+											"key": "destinationStation",
+											"value": "Mumbai"
+										},
+										{
+											"key": "date",
+											"value": "2024-12-25"
+										},
+										{
+											"key": "tierClass",
+											"value": "AC%20First%20Class"
+										},
+										{
+											"key": "price",
+											"value": "800"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "View Profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "john.doe@example.com:customer:1734802218571~0rHEeUwn4dfGXc_v6casfEb8_vDg23SfHFUGVjOTS1k",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8085/api/v1/users/profile/U-75968737",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"profile",
+										"U-75968737"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Profile",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "john.doe@example.com:customer:1734802218571~0rHEeUwn4dfGXc_v6casfEb8_vDg23SfHFUGVjOTS1k",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userName\": \"John Doe\",\r\n    \"address\": \"123 Main Street, City\",\r\n    \"contactNumber\": \"9876543210\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/users/profile/U-75968737",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"profile",
+										"U-75968737"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Book Train",
+					"item": [
+						{
+							"name": "Book Train Ticket",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "john.doe@example.com:customer:1734845451167~9KEmjwYRYiUvSp9VdNas8Sx-keyWq9SVk8TYzAQnaHY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"U-75968737\",\r\n    \"userName\": \"Rahul Roy\",\r\n    \"contactNumber\": \"2415638952\",\r\n    \"trainNumber\": \"12345\",\r\n    \"trainName\": \"Express Train\",\r\n    \"originStation\": \"Delhi\",\r\n    \"destinationStation\": \"Mumbai\",\r\n    \"departureTime\": \"10:00 AM\",\r\n    \"arrivalTime\": \"06:00 PM\",\r\n    \"date\": \"2024-12-25\",\r\n    \"numberOfSeats\": 1,\r\n    \"tierClass\": \"AC First Class\",\r\n    \"tierClassPrice\": 800\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/users/trains/book-train",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"trains",
+										"book-train"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Train Ticket",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "john.doe@example.com:customer:1734845451167~9KEmjwYRYiUvSp9VdNas8Sx-keyWq9SVk8TYzAQnaHY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"U-75968737\",\r\n    \"userName\": \"Rahul Roy\",\r\n    \"contactNumber\": \"2415638952\",\r\n    \"trainNumber\": \"12345\",\r\n    \"trainName\": \"Express Train\",\r\n    \"originStation\": \"Delhi\",\r\n    \"destinationStation\": \"Mumbai\",\r\n    \"departureTime\": \"10:00 AM\",\r\n    \"arrivalTime\": \"06:00 PM\",\r\n    \"date\": \"2024-12-25\",\r\n    \"numberOfSeats\": 1,\r\n    \"tierClass\": \"AC First Class\",\r\n    \"tierClassPrice\": 800.0,\r\n    \"status\": \"BOOKED\",\r\n    \"pnr\": \"PNR-80946875\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/users/trains/cancel-train",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"trains",
+										"cancel-train"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View Booked Train",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "john.doe@example.com:customer:1734845451167~9KEmjwYRYiUvSp9VdNas8Sx-keyWq9SVk8TYzAQnaHY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/users/trains/view-booked-train/U-75968737",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"trains",
+										"view-booked-train",
+										"U-75968737"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"Shilajit Acharjee\",\r\n  \"email\": \"shilajit.acharjee@gmail.com\",\r\n  \"password\": \"Abcd@123\",\r\n  \"contactNumber\": \"1254236589\",\r\n  \"address\": \"Kolkata\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Train",
+					"item": [
+						{
+							"name": "Add Train",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"trainNumber\": \"12345\",\r\n    \"trainName\": \"Express Train\",\r\n    \"originStation\": \"Delhi\",\r\n    \"destinationStation\": \"Mumbai\",\r\n    \"departureTime\": \"10:00 AM\",\r\n    \"arrivalTime\": \"06:00 PM\",\r\n    \"date\": \"2024-12-25\",\r\n    \"numberOfSeats\": 300,\r\n    \"tierClassPrice\": {\r\n        \"AC First Class\": 800,\r\n        \"Sleeper\": 200,\r\n        \"General\": 100\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/admins/trains/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"admins",
+										"trains",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Train",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"trainNumber\": \"12345\",\r\n    \"trainName\": \"Superfast Expres Train\",\r\n    \"originStation\": \"Delhi\",\r\n    \"destinationStation\": \"Mumbai\",\r\n    \"departureTime\": \"10:00 AM\",\r\n    \"arrivalTime\": \"06:00 PM\",\r\n    \"date\": \"2024-12-25\",\r\n    \"numberOfSeats\": 300,\r\n    \"tierClassPrice\": {\r\n        \"AC First Class\": 800,\r\n        \"Sleeper\": 400,\r\n        \"General\": 200\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/admins/trains/update/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"admins",
+										"trains",
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Perticular Train",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/admins/trains/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"admins",
+										"trains",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Trains",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/admins/trains/all-train",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"admins",
+										"trains",
+										"all-train"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Train",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/v1/admins/trains/delete/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"v1",
+										"admins",
+										"trains",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"Admin\",\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"Admin@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admins/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admins",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Number Of Registered Train",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admins/trains/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admins",
+								"trains",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Number Of Active Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admins/users/active/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admins",
+								"users",
+								"active",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Booked Users For Particular Train",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "admin@gmail.com:admin:1734796890771~PfAZ35xIkwE49SbXcxJP6PcpxcIdp2zb6Ia2gwm-vWI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admins/trains/12345/users/booked",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admins",
+								"trains",
+								"12345",
+								"users",
+								"booked"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "User & Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"Admin@123\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
