@@ -1,0 +1,70 @@
+<!-- navbar.component.html -->
+<nav class="bg-white p-4 text-slate-800 flex justify-between items-center sticky shadow top-0 z-50">
+  <div class="text-3xl font-bold flex justify-center items-center">
+    <img
+      src="./assets/logo.png"
+      alt=""
+      class="w-20 rounded-full m-0.5"
+      draggable="false"
+    />
+    <a href="/">TrainMonk</a>
+  </div>
+  <div class="flex space-x-4 justify-center items-start">
+    <!-- Conditional display based on login state -->
+    <div *ngIf="!isLoggedIn; else loggedIn">
+      <button
+        class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-4 rounded"
+      >
+        <a href="/register">Register</a>
+      </button>
+    </div>
+
+    <!-- If the user is logged in, show their username and dropdown -->
+    <ng-template #loggedIn>
+      <img
+        src="https://png.pngtree.com/png-vector/20220628/ourmid/pngtree-user-profile-avatar-vector-admin-png-image_5289693.png"
+        alt=""
+        class="w-10 rounded-full cursor-pointer"
+        draggable="false"
+      />
+      <span class="text-lg">Hey, {{ username }}!</span>
+      <button
+        (click)="toggleDropdown()"
+      >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
+      </svg>      
+      </button>
+      <!-- Dropdown Menu -->
+      <div
+        *ngIf="dropdownOpen"
+        class="absolute bg-white text-black border border-gray-300 mt-2 right-0 w-48 rounded-md shadow-lg"
+      >
+        <ul class="space-y-2 p-3">
+          <li>
+            <a
+              href="/profile"
+              class="block hover:bg-blue-500 hover:text-white px-4 py-2"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a
+              href="/booked-tickets"
+              class="block hover:bg-blue-500 hover:text-white px-4 py-2"
+              >Booked Tickets</a
+            >
+          </li>
+          <li>
+            <button
+              (click)="logout()"
+              class="w-full text-left hover:bg-blue-500 hover:text-white px-4 py-2"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+  </div>
+</nav>

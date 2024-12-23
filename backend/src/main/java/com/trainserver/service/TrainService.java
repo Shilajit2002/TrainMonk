@@ -43,14 +43,13 @@ public class TrainService {
 		return trainRepository.findById(id).orElseThrow(() -> new RuntimeException("Train not found"));
 	}
 
-	public List<Train> searchTrains(String originStation, String destinationStation, String date, String tierClass,
-			Double price) {
+	public List<Train> searchTrains(String originStation, String destinationStation, String date, String tierClass) {
 		List<Train> trains = trainRepository.findByOriginStationAndDestinationStationAndDate(originStation,
 				destinationStation, date);
 
 		return trains.stream().filter(train -> {
 			Map<String, Double> tierClassPrice = train.getTierClassPrice();
-			return tierClassPrice.containsKey(tierClass) && tierClassPrice.get(tierClass).equals(price);
+			return tierClassPrice.containsKey(tierClass);
 		}).collect(Collectors.toList());
 	}
 

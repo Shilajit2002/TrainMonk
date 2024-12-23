@@ -1,0 +1,44 @@
+<div class="search-results p-6">
+  <h1 class="text-3xl font-semibold mb-6">Train Search Results</h1>
+  <div *ngIf="trains.length > 0" class="innerTable">
+    <table
+      class="min-w-full table-auto border-collapse bg-white shadow-md rounded-lg"
+    >
+      <thead>
+        <tr class="bg-gray-100 text-left">
+          <th class="px-4 py-2 font-medium text-gray-600">Train Number</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Train Name</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Departure</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Arrival</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Date</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Seats Available</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Class</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Price</th>
+          <th class="px-4 py-2 font-medium text-gray-600">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let train of trains" class="border-b hover:bg-gray-50">
+          <td class="px-4 py-2 text-gray-800">{{ train.trainNumber }}</td>
+          <td class="px-4 py-2 text-gray-800">{{ train.trainName }}</td>
+          <td class="px-4 py-2 text-gray-800">{{ train.departureTime }}</td>
+          <td class="px-4 py-2 text-gray-800">{{ train.arrivalTime }}</td>
+          <td class="px-4 py-2 text-gray-800">{{ train.date }}</td>
+          <td class="px-4 py-2 text-gray-800">{{ train.numberOfSeats }}</td>
+          <td class="px-4 py-2 text-gray-800">{{ trainClass }}</td>
+          <td class="px-4 py-2 text-gray-800">
+            {{ train.tierClassPrice[trainClass] }}
+          </td>
+          <td class="px-4 py-2 text-gray-800">
+            <button class="bg-slate-800 text-white font-semibold px-3 py-1 rounded cursor-pointer">Book</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="trains.length === 0">
+    <p class="text-center text-gray-500">
+      No trains available for your search criteria.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,378 @@
+#login-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.76);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-modal .loginPage {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  color: rgb(5, 62, 88);
+  position: relative;
+  transform: translateY(-100px);
+  animation: popuplogin 0.4s forwards;
+}
+
+@keyframes popuplogin {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-50px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#login-modal .loginPage #closeIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-modal .loginPage #closeIcon .icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+#login-modal .loginPage #closeIcon .icon:hover {
+  color: rgb(4, 86, 153);
+}
+
+#login-modal .loginPage form{
+  width: 90%;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+#login-modal .loginPage form .formBox{
+  width: 100%;
+}
+
+#login-modal .loginPage form .formInner {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+}
+
+#login-modal .loginPage form .formInner .icon {
+  width: 20px;
+  margin-right: 5px;
+  color: rgb(1, 39, 51);
+  padding: 10px;
+}
+
+#login-modal .loginPage form input {
+  width: 100%;
+  border-style: none;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: #292929;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+#login-modal .loginPage form input:focus {
+  outline: none;
+}
+
+#login-modal .loginPage form input::placeholder {
+  color: #292929;
+  font-weight: 500;
+}
+
+#login-modal .loginPage form .btn-grp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#login-modal .loginPage form .btn-grp button {
+  border-style: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: rgb(41, 41, 41);
+  border: 1px solid rgb(41, 41, 41);
+  background-color: transparent;
+  transition: all 0.2s linear;
+}
+
+#login-modal .loginPage form .btn-grp button:hover {
+  background-color: rgb(41, 41, 41);
+  color: #fff;
+}
+
+#login-modal .loginPage span a {
+  color: rgb(0, 132, 255);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#login-modal .loginPage #closeLoginIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-modal .loginPage #closeLoginIcon .icon {
+  width: 30px;
+  cursor: pointer;
+  color: #292929;
+}
+
+#login-modal .loginPage #closeLoginIcon .icon:hover {
+  color: rgb(2, 27, 48);
+}
+
+@media only screen and (max-width: 500px) {
+  #login-modal .loginPage {
+    width: 70%;
+  }
+}
+
+.registerPage {
+  width: 100%;
+  min-height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.24),
+      rgba(16, 1, 22, 0.151)
+    ),
+    url("https://images2.alphacoders.com/596/thumb-1920-596297.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 20px 0;
+}
+
+.registerPage .innerRegister {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.registerPage .innerRegister .left,
+.registerPage .innerRegister .right {
+  height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.registerPage .innerRegister .left {
+  width: 45%;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.459),
+      rgba(1, 16, 22, 0.527)
+    ),
+    url("https://images.pexels.com/photos/5699984/pexels-photo-5699984.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 40px;
+  font-weight: 600;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.registerPage .innerRegister .right {
+  width: 55%;
+  padding: 20px 0;
+}
+
+.registerPage .innerRegister .right form {
+  width: 80%;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.registerPage .innerRegister .right form .formBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.registerPage .innerRegister .right form .formBox .formInner {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid rgb(190, 232, 247);
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  padding-top: 15px;
+}
+
+.registerPage .innerRegister .right form .formBox .formInner label {
+  position: absolute;
+  top: -13px;
+  /* left: 14px; */
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #fff;
+  color: rgb(1, 39, 51);
+  padding: 0 4px;
+}
+
+.registerPage .innerRegister .right form .formBox p {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  margin-top: 2px;
+  color: rgb(255, 25, 25);
+  height: 8px;
+  font-weight: 550;
+}
+
+.registerPage .innerRegister .right form .formBox .formInner .icon {
+  width: 20px;
+  margin-right: 5px;
+  color: rgb(1, 39, 51);
+}
+
+.registerPage .innerRegister .right h2 {
+  color: rgb(7, 151, 170);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.registerPage .innerRegister .right form input {
+  width: 100%;
+  border-style: none;
+  font-size: 0.9rem;
+}
+
+.registerPage .innerRegister .right form input:focus {
+  outline: none;
+}
+
+.registerPage .innerRegister .right form input::placeholder {
+  color: rgb(173, 173, 173);
+}
+
+.registerPage .innerRegister .right form .formBox .formInner:focus {
+  border-color: red;
+}
+
+.registerPage .innerRegister .right form .btn-grp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.registerPage .innerRegister .right form .btn-grp button {
+  border-style: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+
+.registerPage .innerRegister .right form .btn-grp button:nth-child(1) {
+  background-color: rgb(7, 151, 170);
+}
+
+.registerPage .innerRegister .right form .btn-grp button:nth-child(1):hover {
+  background-color: rgb(6, 190, 214);
+}
+
+.registerPage .innerRegister .right form .btn-grp button:nth-child(2) {
+  background-color: rgb(145, 4, 4);
+}
+
+.registerPage .innerRegister .right form .btn-grp button:nth-child(2):hover {
+  background-color: rgb(194, 15, 15);
+}
+
+.registerPage .innerRegister .right span {
+  color: rgb(0, 132, 255);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+  .registerPage .innerRegister {
+    width: 90%;
+  }
+
+  .registerPage .innerRegister .left {
+    width: 35%;
+  }
+
+  .registerPage .innerRegister .right {
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .registerPage .innerRegister {
+    width: 90%;
+  }
+
+  .registerPage .innerRegister .left {
+    display: none;
+  }
+
+  .registerPage .innerRegister .right {
+    width: 100%;
+    height: fit-content;
+  }
+}

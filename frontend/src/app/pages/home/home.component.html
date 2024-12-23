@@ -1,0 +1,55 @@
+<!-- search.component.html -->
+<div class="home">
+  <div class="sizeBox">
+    <div class="bookticket">
+      <h1 class="text-2xl font-bold">Search Train</h1>
+      <div class="downBox">
+        <div class="formBox">
+          <label for="boardingStation">Boarding Station</label>
+          <input
+            type="text"
+            name="boardingStation"
+            id="boardingStation"
+            [(ngModel)]="boardingStation"
+            placeholder="Boarding"
+          />
+        </div>
+        <div class="formBox">
+          <label for="destinationStation">Destination Station</label>
+          <input
+            type="text"
+            name="destinationStation"
+            id="destinationStation"
+            [(ngModel)]="destinationStation"
+            placeholder="Destination"
+          />
+        </div>
+        <div class="formBox">
+          <label for="date">Date</label>
+          <input type="date" name="date" id="date" [(ngModel)]="date" />
+        </div>
+        <div class="formBox">
+          <label for="classTrain">Class</label>
+          <select name="classTrain" id="classTrain" [(ngModel)]="trainClass">
+            <option value="General">General</option>
+            <option value="AC First Class">AC First Class</option>
+            <option value="Sleeper">Sleeper</option>
+          </select>
+        </div>
+
+        <button (click)="onSearch()">SEARCH</button>
+      </div>
+    </div>
+
+    <div class="heading">
+      <h1 id="welcomeText">
+        {{ typedText }}
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="w-full">
+    <marquee behavior="smooth" direction="left">
+        <img src="https://i.pinimg.com/originals/6e/a4/ea/6ea4eadaf6107f04c47487f859291b0d.png" alt="" class="w-32">
+    </marquee>
+</div>

@@ -32,7 +32,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private TrainService trainService;
 
@@ -43,7 +43,12 @@ public class UserController {
 	public ResponseEntity<?> registerUser(@RequestBody User user) {
 		try {
 			User registeredUser = userService.registerUser(user);
-			return ResponseEntity.ok("Hey " + registeredUser.getUserName() + ", you are registered successfully 😎");
+
+			// Create a success response
+			Map<String, Object> response = new HashMap<>();
+			response.put("message", "Hey " + registeredUser.getUserName() + ", you are registered successfully 😎");
+
+			return ResponseEntity.ok(response);
 		} catch (UserExistsException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
@@ -89,11 +94,9 @@ public class UserController {
 
 	@GetMapping("/trains/search")
 	public ResponseEntity<?> searchTrains(@RequestParam String originStation, @RequestParam String destinationStation,
-			@RequestParam String date, @RequestParam String tierClass, @RequestParam Double price,
-			HttpServletRequest request) {
+			@RequestParam String date, @RequestParam String tierClass, HttpServletRequest request) {
 		try {
-			List<Train> trainsData = trainService.searchTrains(originStation, destinationStation, date, tierClass,
-					price);
+			List<Train> trainsData = trainService.searchTrains(originStation, destinationStation, date, tierClass);
 
 			// Create a success response
 			Map<String, Object> response = new HashMap<>();

@@ -1,0 +1,81 @@
+<!-- Register Component HTML -->
+<div class="registerPage">
+    <div class="innerRegister">
+      <div class="left">
+        <h1 class="text-3xl font-bold mb-2">Book Your Journey Today!</h1>
+        <p class="text-lg">Register to access easy and convenient train ticket booking.</p>
+      </div>
+      <div class="right">
+        <h2>Register</h2>
+  
+        <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+          <div class="formBox" *ngFor="let field of fields">
+            <div class="formInner">
+              <label [for]="field.id">{{ field.label }}</label>
+              <svg *ngIf="field.icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 icon">
+                <path [attr.d]="field.icon"></path>
+              </svg>
+              <input
+                [type]="field.type"
+                [formControlName]="field.name"
+                [id]="field.id"
+                [placeholder]="field.placeholder"
+                [required]="field.required"
+              />
+            </div>
+            <p *ngIf="!registerForm.controls[field.name].valid && registerForm.controls[field.name].touched" class="error-text">
+              {{ field.errorMessage }}
+            </p>
+          </div>
+  
+          <div class="btn-grp">
+            <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+            <button type="reset">Reset</button>
+          </div>
+        </form>
+  
+        <p>or</p>
+        <p>Already have an account? <span id="login-btn" (click)="toggleLogin()">Login</span></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Login Modal -->
+  <div *ngIf="isLoginModalVisible" id="login-modal">
+    <div class="loginPage">
+      <div id="closeLoginIcon" (click)="closeLoginModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 icon">
+          <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+  
+      <h2 class="text-xl font-semibold">USER LOGIN</h2>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+        <div class="formBox">
+          <div class="formInner">
+            <label for="email" class="ml-1 mb-1 font-semibold">Email</label>
+            <input type="email" formControlName="email" id="email" placeholder="Enter your email" required />
+          </div>
+          <p *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched" class="text-red-500 text-xs ml-1 mt-1">
+            Please enter a valid email.
+          </p>
+        </div>
+  
+        <div class="formBox">
+          <div class="formInner">
+            <label for="password" class="ml-1 mb-1 font-semibold">Password</label>
+            <input type="password" formControlName="password" id="password" placeholder="Enter your password" required />
+          </div>
+          <p *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched" class="text-red-500 text-xs ml-1 mt-1">
+            Please enter a valid password.
+          </p>
+        </div>
+  
+        <div class="btn-grp">
+          <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
